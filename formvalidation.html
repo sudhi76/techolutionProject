@@ -1,0 +1,186 @@
+<html>
+  <head>
+    <title></title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <h1
+      class="text-white text-center font-weight-bold bg-success"
+      style="font-size: 55px;"
+    >
+      School Amission Form
+    </h1>
+
+    <div class="container">
+      <br />
+
+      <div class="col-lg-6 m-auto d-block">
+        <form class="bg-light">
+          <div class="form-group">
+            <label for="user" class="font-weight-bold"> Name: </label>
+            <input
+              type="text"
+              name="firstname"
+              class="form-control"
+              id="user"
+              autocomplete="off"
+            />
+            <span id="username" class="text-danger font-weight-bold"> </span>
+          </div>
+
+          <div class="form-group">
+            <label class="font-weight-bold"> Last Name: </label>
+            <input
+              type="text"
+              name="lastname"
+              class="form-control"
+              id="lname"
+              autocomplete="off"
+            />
+            <span id="lastname" class="text-danger font-weight-bold"> </span>
+          </div>
+
+          <div class="form-group">
+            <label class="font-weight-bold"> Class: </label>
+            <input
+              type="text"
+              name="class"
+              class="form-control"
+              id="class"
+              autocomplete="off"
+            />
+            <span id="classname" class="text-danger font-weight-bold"> </span>
+          </div>
+
+          <div class="form-group">
+            <label class="font-weight-bold"> year of passing: </label>
+            <input
+              type="text"
+              name="passingyear"
+              class="form-control"
+              id="passingyear"
+              autocomplete="off"
+            />
+            <span id="passingyr" class="text-danger font-weight-bold"> </span>
+          </div>
+
+          <div class="form-group">
+            <label class="font-weight-bold"> percentage of marks: </label>
+            <input
+              type="number"
+              name="email"
+              class="form-control"
+              id="marks"
+              autocomplete="off"
+            />
+            <span id="percentage" class="text-danger font-weight-bold"> </span>
+          </div>
+
+          <input
+            type="submit"
+            name="submit"
+            value="submit"
+            class="btn btn-success"
+            id="submit"
+          />
+
+          <button onclick="return validation()">
+            Check Validations
+          </button>
+        </form>
+        <br /><br />
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      let button = document.getElementById("submit");
+      button.disabled = true;
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+      });
+
+      function validation() {
+        var user = document.getElementById("user").value;
+        var lastName = document.getElementById("lname").value;
+        var classname = document.getElementById("class").value;
+        var passingYear = document.getElementById("passingyear").value;
+        var percentage = document.getElementById("marks").value;
+        let v1 = true;
+
+        if (user == "") {
+          document.getElementById("username").innerHTML =
+            " *fill the username field";
+          v1 = false;
+        }
+        if (user.length <= 2 || user.length > 20) {
+          document.getElementById("username").innerHTML =
+            " *Username lenght must be between 2 and 20";
+          v1 = false;
+        }
+        if (!isNaN(user)) {
+          document.getElementById("username").innerHTML =
+            " *only characters are allowed";
+          v1 = false;
+        }
+
+        if (lastName == "") {
+          document.getElementById("lastname").innerHTML =
+            " *fill the lastname field";
+          v1 = false;
+        }
+        if (lastName.length <= 2 || lastName.length > 20) {
+          document.getElementById("lastname").innerHTML =
+            " *lastname lenght must be between 2 and 20";
+          v1 = false;
+        }
+        if (!isNaN(lastName)) {
+          document.getElementById("lastname").innerHTML =
+            " *only characters are allowed";
+          v1 = false;
+        }
+
+        if (classname == "") {
+          document.getElementById("classname").innerHTML =
+            " *fill the class field";
+          v1 = false;
+        }
+
+        if (passingYear == "") {
+          document.getElementById("passingyr").innerHTML =
+            " *fill the passingyear field";
+          v1 = false;
+        }
+
+        if (passingYear > 2017) {
+          document.getElementById("passingyr").innerHTML = " *invalid";
+          v1 = false;
+        }
+
+        if (percentage == "") {
+          document.getElementById("percentage").innerHTML =
+            " *fill the marks field";
+          v1 = false;
+        }
+
+        if (v1 == true) {
+          let button = document.getElementById("submit");
+          button.disabled = false;
+        }
+        return false;
+      }
+    </script>
+  </body>
+</html>

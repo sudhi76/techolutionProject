@@ -1,0 +1,27 @@
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 6px;
+}
+
+th {
+  font-weight: bold;
+}
+
+.subheading th {
+  font-style: italic;
+}
+
+.studentName {
+  text-transform: capitalize;
+}
+
+.failed {
+  color: red;
+}
+
+.topper {
+  color: green;
+}
